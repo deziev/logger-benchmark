@@ -1,0 +1,28 @@
+{
+  "name": "logger-benckmark",
+  "version": "1.0.0",
+  "description": "Simple benchmarks for loggers",
+  "main": "index.js",
+  "dependencies": {
+    "benchmark": "2.1.4",
+    "intel": "latest",
+    "pino": "latest",
+    "winston": "latest"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deziev/logger-benchmark.git"
+  },
+  "keywords": [
+    "benchmark",
+    "logger",
+    "intel",
+    "pino",
+    "winston"
+  ],
+  "author": "deziev",
+  "license": "ISC"
+}
