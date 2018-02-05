@@ -8,7 +8,8 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'yarn test'
+        sh '''pwd
+ls -la'''
       }
     }
     stage('Deploy') {
