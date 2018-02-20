@@ -6,8 +6,11 @@ const EE = require('events').EventEmitter;
 const winston = require('winston');
 const intel = require('intel');
 const pino = require('pino');
+const log4js = require('log4js').getLogger();
 
-var stdout = new EE();
+
+
+const stdout = new EE();
 stdout.write = function (out, encoding, cb) {
   if (typeof encoding === 'function') {
     cb = encoding;
@@ -21,9 +24,9 @@ winston.add(winston.transports.File, {stream: stdout, timestamp: true});
 winston.remove(winston.transports.Console);
 
 intel.addHandler(new intel.handlers.Stream(
-    { 
+    {
         level: intel.TRACE,
-        stream: stdout, 
+        stream: stdout,
         formatter: new intel.Formatter({
             'format': '[%(date)s] %(name)s.%(levelname)s: %(message)s'
         })
@@ -34,12 +37,13 @@ const plog = pino(
     {
         level: 'trace',
         name: 'root'
-    }, 
+    },
     stdout
 );
 
-var _console = new Console(stdout, stdout);
+const _console = new Console(stdout, stdout);
 
+log4js.level = 'trace';
 
 process.stdout.write = function(msg, enc, callback) {
   if(typeof enc === 'function' && !callback) callback = enc;
@@ -64,6 +68,9 @@ suite
   })
   .add('pino.info', function() {
     plog.info('bench');
+  })
+  .add('log4js.info', function() {
+    log4js.info('bench');
   })
 
 suite

@@ -6,6 +6,7 @@
   "dependencies": {
     "benchmark": "2.1.4",
     "intel": "latest",
+    "log4js": "latest",
     "pino": "latest",
     "winston": "latest"
   },
@@ -21,7 +22,8 @@
     "logger",
     "intel",
     "pino",
-    "winston"
+    "winston",
+    "log4js"
   ],
   "author": "deziev",
   "license": "ISC"
